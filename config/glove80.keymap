@@ -187,10 +187,10 @@
             bindings = <
             &kp F1           &kp F2   &kp F3      &kp F4      &kp F5                                                                                         &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
             &none            &kp N1   &kp N2      &kp N3      &kp N4      &kp N5                                                                     &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &none
-            &kp ESC      &ct LC(DE_X) DE_X &ct LC(DE_V) DE_V &kp DE_L &ct LC(DE_C) DE_C &kp DE_W                                                   &kp DE_K      &kp DE_H      &kp DE_G      &kp DE_F      &kp DE_Q      &kp DE_SS
-            &kp TAB      &ct LSHIFT DE_U &ct LWIN DE_I &ct LALT DE_A &ct LCTRL DE_E &kp DE_O                                                        &kp DE_S   &ct LCTRL DE_N &ct LALT DE_R &ct LWIN DE_T &ct LSHIFT DE_D &kp DE_Y
-            &kp LSHIFT      &kp DE_UE &kp DE_OE   &kp DE_AE   &kp DE_P    &kp DE_Z    &kp SPACE   &kp BSPC    &none      &none     &kp RET   &kp LSHIFT &kp DE_B      &kp DE_M      &kp DE_COMMA  &kp DE_PERIOD &kp DE_J      &none
-            &magic MAGIC 0  &none    &none       &none       &none                   &mo SPECIAL &kp SPACE   &kp BSPC   &kp RET   &kp LSHIFT &mo NUM               &none         &none         &none         &none         &none
+            &kp ESC          &ct LC(DE_X) DE_X    &ct LC(DE_V) DE_V    &kp DE_L    &ct LC(DE_C) DE_C    &kp DE_W                                   &kp DE_K      &kp DE_H      &kp DE_G      &kp DE_F      &kp DE_Q      &kp DE_SS
+            &kp TAB          &ct LSHIFT DE_U      &ct LWIN DE_I        &ct LALT DE_A        &ct LCTRL DE_E       &kp DE_O                          &kp DE_S      &ct LCTRL DE_N     &ct LALT DE_R      &ct LWIN DE_T      &ct LSHIFT DE_D    &kp DE_Y
+            &kp LSHIFT       &kp DE_UE &kp DE_OE   &kp DE_AE   &kp DE_P    &kp DE_Z    &kp SPACE   &kp BSPC    &none      &none     &kp RET   &kp LSHIFT &kp DE_B      &kp DE_M      &kp DE_COMMA  &kp DE_PERIOD &kp DE_J      &none
+            &magic MAGIC 0   &none    &none       &none       &none                   &mo SPECIAL &kp SPACE   &kp BSPC   &kp RET   &kp LSHIFT &mo NUM               &none         &none         &none         &none         &none
             >;
         };
 
@@ -199,7 +199,7 @@
             &trans          &trans        &trans        &trans        &trans                                                                                              &trans        &trans        &trans        &trans        &trans
             &trans          &trans        &trans        &trans        &trans        &trans                                                                      &trans  &trans        &trans        &trans        &trans        &trans
             &trans          &kp DE_DEG    &kp DE_UNDS   &kp DE_LBRC   &kp DE_RBRC   &ud DE_CARET                                                                &kp DE_EXLM   &kp DE_LT     &kp DE_GT     &kp DE_EQL    &kp DE_AMPR   &kp DE_SECT
-            &trans       &ct LSHIFT DE_BSLS &ct LWIN DE_SLSH &ct LALT DE_LCBR &ct LCTRL DE_RCBR &kp DE_ASTR                                                  &kp DE_QUES &ct LCTRL DE_LPRN &ct LALT DE_RPRN &ct LWIN DE_MINUS &ct LSHIFT DE_COLN &kp DE_AT
+            &trans          &ct LSHIFT DE_BSLS         &ct LWIN DE_SLSH           &ct LALT DE_LCBR           &ct LCTRL DE_RCBR          &kp DE_ASTR              &kp DE_QUES   &ct LCTRL DE_LPRN      &ct LALT DE_RPRN       &ct LWIN DE_MINUS      &ct LSHIFT DE_COLN     &kp DE_AT
             &trans          &kp DE_HASH   &kp DE_DLR    &kp DE_PIPE   &kp DE_TILD   &ud DE_GRV    &trans      &trans      &trans    &trans    &trans    &trans &kp DE_PLUS   &kp DE_PERC   &kp DE_DQUO   &kp DE_QUOT   &kp DE_SCLN   &kp DE_EURO
             &trans          &trans        &trans        &trans        &trans                      &trans      &trans      &trans    &trans    &trans    &to MOUSE            &trans        &trans        &trans        &trans        &trans
             >;
@@ -207,10 +207,10 @@
 
         num_layer {
             bindings = <
-            &trans          &trans        &trans        &trans        &trans                                                                                              &trans        &trans        &trans        &trans        &trans
-            &trans          &trans        &trans        &trans        &trans        &trans                                                                      &trans  &trans        &trans        &trans        &trans        &trans
+            &trans          &trans        &trans        &trans        &trans                                                                                                 &trans        &trans        &trans        &trans        &trans
+            &trans          &trans        &trans        &trans        &trans        &trans                                                                      &trans       &trans        &trans        &trans        &trans        &trans
             &trans          &kp PG_UP     &kp BSPC      &kp UP        &kp DELETE    &kp PG_DN                                                                   &kp SYSREQ    &kp KP_N7     &kp KP_N8     &kp KP_N9     &mkp MB4      &kp F12
-            &trans       &ct LSHIFT HOME  &ct LWIN LEFT &ct LALT DOWN &ct LCTRL RIGHT &kp END                                                                   &kp LG(LS(S)) &ct LCTRL KP_N4 &ct LALT KP_N5 &ct LWIN KP_N6 &ct LSHIFT KP_DOT &none
+            &trans    &ct LSHIFT HOME &ct LWIN LEFT   &ct LALT DOWN &ct LCTRL RIGHT &kp END                                                                 &kp LG(LS(S)) &ct LCTRL KP_N4 &ct LALT KP_N5 &ct LWIN KP_N6  &ct LSHIFT KP_DOT &none
             &trans          &kp LCTRL     &kp H         &kp J         &kp K         &kp L         &trans      &trans      &trans    &trans    &trans    &trans &kp KP_N0     &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_COMMA  &none
             &trans          &trans        &trans        &trans        &trans                      &to FBT     &trans      &trans    &trans    &trans    &trans               &trans        &trans        &trans        &trans        &trans
             >;
@@ -219,7 +219,7 @@
         mouse_layer {
             bindings = <
             &trans          &trans        &trans        &trans        &trans                                                                                              &trans        &trans        &trans        &trans        &trans
-            &trans          &trans        &trans        &trans        &trans        &trans                                                                      &trans  &trans        &trans        &trans        &trans        &trans
+            &trans          &trans        &trans        &trans        &trans        &trans                                                                      &trans    &trans        &trans        &trans        &trans        &trans
             &trans          &none         &msc SCRL_UP  &mmv MOVE_UP  &msc SCRL_DOWN &none                                                                      &none         &mkp MB4      &mkp MB5      &none         &none         &none
             &trans          &none      &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none                                                                      &none         &mkp MB1      &mkp MB3      &mkp MB2      &none         &kp RSHIFT
             &trans          &kp LCTRL     &none         &none         &none         &none         &trans      &trans      &trans    &trans    &trans    &trans &none         &none         &none         &none         &none         &kp LALT
