@@ -22,7 +22,7 @@
 
 // shortcuts
 #define ___ &trans
-#define XXX &none
+#define xxx &none
 
 #define NUM1 KP_NUMBER_1
 #define NUM2 KP_NUMBER_2 
