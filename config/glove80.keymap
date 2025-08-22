@@ -166,7 +166,7 @@
             compatible = "zmk,behavior-macro-one-param";
             label = "UNDEAD_MACRO";
             #binding-cells = <1>;
-            bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>, <&kp SPACE>;
+            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &kp SPACE>;
         };
     };
 
@@ -206,12 +206,13 @@
             bindings = <&out OUT_BLE &bt BT_SEL 3>;
         };
     };
-    
+
     combos {
         compatible = "zmk,combos";
+
         numlock_combo {
             bindings = <&kp KP_NLCK>;
-            key-positions = <55 58>; 
+            key-positions = <59 62>;
             layers = <NUM>;
             timeout-ms = <25>;
         };
@@ -233,11 +234,11 @@
 
         special_layer {
             bindings = <
-&kp ESC  &trans                &trans              &trans              &trans                                                                                          &trans               &trans              &trans               &trans                &trans
-&trans   &trans                &trans              &trans              &trans               &trans                                                        &trans       &trans               &trans              &trans               &trans                &trans
-&trans   &kp DE_DEG            &kp DE_UNDS         &kp DE_LBRC         &kp DE_RCBR          &ud DE_CARET                                                  &kp DE_EXLM  &kp DE_LT            &kp DE_GT           &kp DE_EQL           &kp DE_AMPR           &kp DE_SECT
-&trans   &hm_l LSHIFT DE_BSLS  &hm_l LWIN DE_SLSH  &hm_l LALT DE_LCBR  &hm_l LCTRL DE_RCBR  &kp DE_ASTR                                                   &kp DE_QUES  &hm_r LCTRL DE_LPRN  &hm_r LALT DE_RPRN  &hm_r LGUI DE_MINUS  &hm_r LSHIFT DE_COLN  &kp DE_AT
-&trans   &kp DE_HASH           &kp DE_DLR          &kp DE_PIPE         &kp DE_TILD          &ud DE_GRV    &trans  &trans  &trans  &trans  &trans  &trans  &kp DE_PLUS  &kp DE_PERC          &kp DE_DQUO         &kp DE_QUOT          &kp DE_SCLN           &kp DE_EURO
+&kp ESC  &trans                &trans              &trans              &trans                                                                                             &trans               &trans              &trans               &trans                &trans
+&trans   &trans                &trans              &trans              &trans               &trans                                                           &trans       &trans               &trans              &trans               &trans                &trans
+&trans   &kp DE_DEG            &kp DE_UNDS         &kp DE_LBRC         &kp DE_RCBR          &ud DE_CARET                                                     &kp DE_EXLM  &kp DE_LT            &kp DE_GT           &kp DE_EQL           &kp DE_AMPR           &kp DE_SECT
+&trans   &hm_l LSHIFT DE_BSLS  &hm_l LWIN DE_SLSH  &hm_l LALT DE_LCBR  &hm_l LCTRL DE_RCBR  &kp DE_ASTR                                                      &kp DE_QUES  &hm_r LCTRL DE_LPRN  &hm_r LALT DE_RPRN  &hm_r LGUI DE_MINUS  &hm_r LSHIFT DE_COLN  &kp DE_AT
+&trans   &kp DE_HASH           &kp DE_DLR          &kp DE_PIPE         &kp DE_TILD          &ud DE_GRV    &trans  &trans  &trans  &trans  &trans  &trans     &kp DE_PLUS  &kp DE_PERC          &kp DE_DQUO         &kp DE_QUOT          &kp DE_SCLN           &kp DE_EURO
 &trans   &trans                &trans              &trans              &trans                             &trans  &trans  &trans  &trans  &trans  &to MOUSE               &trans               &trans              &trans               &trans                &trans
             >;
         };
