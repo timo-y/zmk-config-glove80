@@ -13,6 +13,13 @@
 
 #define HYPER LC(LS(LG(LALT)))
 
+// layers
+#define DEFAULT 0
+#define LOWER 1
+#define MAGIC 2
+#define FACTORY_TEST 3
+
+// shortcuts
 #define ___ &trans
 #define XXX &none
 
@@ -26,12 +33,6 @@
 #define NUM8 KP_NUMBER_8 
 #define NUM9 KP_NUMBER_9 
 #define NUM0 KP_NUMBER_0 
-
-#define DEF 0  // layer shortcuts, must match order in which they are defined below
-#define SPECIAL 1
-#define NUM 2
-#define MOUSE 3
-#define FBT 4
 
 // DE
 #define DE_CARET GRAVE  	// ^ (dead)
@@ -114,6 +115,10 @@
 #define DE_PIPE RA(DE_LT)	// |
 #define DE_MICR RA(DE_M)    // µ
 
+// Homerow mod timing
+#define HM_TAPPING_TERM 280
+#define HM_QUICK_TAP    175
+
 / {
     behaviors {
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
@@ -135,23 +140,33 @@
             bindings = <&mo>, <&rgb_ug_status_macro>;
         };
 
-         ct: control_tap {
+        // Homerow mods for left hand (E A I U -> Ctrl Alt GUI Shift)
+        hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
-            label = "CONTROL_TAP";
+            label = "HOMEROW_MODS_LEFT";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick-tap-ms = <HM_QUICK_TAP>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41 42 43 44 69 70 71 72 73 74>;
+            hold-trigger-on-release;
         };
 
-        ud: undead_macro {
-            compatible = "zmk,behavior-macro-one-param";
-            label = "UNDEAD_MACRO";
-            #binding-cells = <1>;
-            bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>, <&kp SPACE>;
+        // Homerow mods for right hand (N R T D -> Shift GUI Alt Ctrl)
+        hm_r: homerow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_RIGHT";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick-tap-ms = <HM_QUICK_TAP>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 45 46 47 63 64 65 66 67 68>;
+            hold-trigger-on-release;
         };
- 
     };
 
     macros {
@@ -200,27 +215,37 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-        numlock_combo {
-            bindings = <&kp KP_NLCK>;
-            key-positions = <69 72>; 
-            layers = <NUM>;
-            timeout-ms = <25>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
+            // Neo2 Layout with homerow mods using DE_* codes
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // |  F1   |  F2 |  F3 |  F4  |  F5  |                                                               |  F6   |  F7   |  F8  |   F9  |  F10 |
+            // |  ^    |  1  |  2  |  3   |  4   |  5   |                                                 |  6   |   7   |   8   |  9   |   0   |   -  |
+            // |  TAB  |  X  |  V  |  L   |  C   |  W   |                                                 |  K   |   H   |   G   |  F   |   Q   |   ß  |
+            // |  ESC  |  U  | I/A |A/GUI |E/Ctrl| O   |                                                 |  S   |N/Shift|R/GUI |T/Alt |D/Ctrl|   Y  |
+            // |   `   | Ü   |  Ö  |  Ä   |  P   |  Z   | LSHFT | LCTRL | LOWER | | LGUI  | RCTRL | RSHFT |  B   |   M   |   ,   |  .   |   J   | PGUP |
+            // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
+
             bindings = <
-            &kp F1         &kp F2   &kp F3      &kp F4      &kp F5                                                                                         &kp F6  &kp F7      &kp F8      &kp F9      &kp F10
-            &none          &kp N1   &kp N2      &kp N3      &kp N4      &kp N5                                                                     &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &none
-            &kp ESC        &kp DE_X &kp DE_V    &kp DE_L    &kp DE_C    &kp DE_W                                                                   &kp DE_K      &kp DE_H      &kp DE_G      &kp DE_F      &kp DE_Q      &kp DE_SS
-            &kp TAB          &ct LSHIFT DE_U      &ct LWIN DE_I        &ct LALT DE_A        &ct LCTRL DE_E       &kp DE_O                          &kp DE_S      &ct LCTRL DE_N     &ct LALT DE_R      &ct LWIN DE_T      &ct LSHIFT DE_D    &kp DE_Y
-            &kp LSHIFT       &kp DE_UE &kp DE_OE   &kp DE_AE   &kp DE_P    &kp DE_Z    &kp SPACE   &kp BSPC    &none      &none     &kp RET   &kp LSHIFT &kp DE_B      &kp DE_M      &kp DE_COMMA  &kp DE_PERIOD &kp DE_J      &none
-            &magic MAGIC 0   &none    &none       &none       &none                   &mo SPECIAL &kp SPACE   &kp BSPC   &kp RET   &kp LSHIFT &mo NUM               &none         &none         &none         &none         &none
+            &kp F1         &kp F2   &kp F3      &kp F4      &kp F5                                                                                            &kp F6    &kp F7         &kp F8         &kp F9        &kp F10
+            &kp DE_CARET   &kp DE_1 &kp DE_2    &kp DE_3    &kp DE_4    &kp DE_5                                                                 &kp DE_6 &kp DE_7  &kp DE_8       &kp DE_9       &kp DE_0      &kp DE_MINUS
+            &kp TAB        &kp DE_X &kp DE_V    &kp DE_L    &kp DE_C    &kp DE_W                                                                 &kp DE_K &kp DE_H  &kp DE_G       &kp DE_F       &kp DE_Q      &kp DE_SS
+            &kp ESC        &kp DE_U &hm_l LALT DE_I &hm_l LGUI DE_A &hm_l LCTRL DE_E &kp DE_O                                                &kp DE_S &hm_r RSHFT DE_N &hm_r RGUI DE_R &hm_r RALT DE_T &hm_r RCTRL DE_D &kp DE_Y
+            &kp DE_ACUT    &kp DE_UE &kp DE_OE  &kp DE_AE   &kp DE_P    &kp DE_Z &kp LSHFT &kp LCTRL &layer_td &kp LGUI &kp RCTRL &kp RSHFT &kp DE_B &kp DE_M  &kp DE_COMMA   &kp DE_PERIOD  &kp DE_J      &kp PG_UP
+            &magic MAGIC 0 &kp HOME &kp END     &kp LEFT    &kp RIGHT           &kp BSPC  &kp DEL   &kp LALT  &kp RALT &kp RET   &kp SPACE           &kp UP    &kp DOWN       &kp LBKT       &kp RBKT      &kp PG_DN
+            >;
+        };
+
+        lower_layer {
+            bindings = <
+            &kp C_BRI_DN      &kp C_BRI_UP        &kp C_PREV      &kp C_NEXT      &kp C_PP                                                                                                           &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP  &none           &kp PAUSE_BREAK
+            &trans            &none               &none           &none           &none           &kp HOME                                                                              &kp LPAR     &kp KP_NUM   &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp PSCRN
+            &trans            &none               &none           &kp UP          &none           &kp END                                                                               &kp RPAR     &kp KP_N7    &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp SLCK
+            &trans            &none               &kp LEFT        &kp DOWN        &kp RIGHT       &kp PG_UP                                                                             &kp PRCNT    &kp KP_N4    &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &none
+            &trans            &kp K_CMENU         &none           &kp F11         &kp F12         &kp PG_DN       &trans      &trans      &to DEFAULT &trans      &trans      &trans    &kp COMMA    &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
+            &trans            &kp CAPS            &kp INS         &kp F11         &kp F12                         &trans      &trans      &trans      &trans      &trans      &trans                 &kp KP_N0    &kp KP_N0    &kp KP_DOT    &kp KP_ENTER    &trans
             >;
         };
 
