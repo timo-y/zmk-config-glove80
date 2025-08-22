@@ -236,17 +236,17 @@
             >;
         };
 
-        mouse_layer {
-            bindings = <
-&trans  &trans     &trans          &trans          &trans                                                                             &trans    &trans    &trans    &trans  &trans
-&trans  &trans     &trans          &trans          &trans           &trans                                                    &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &none      &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &none                                                     &none   &mkp MB4  &mkp MB5  &none     &none   &none
-&trans  &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                                                     &none   &mkp MB1  &mkp MB3  &mkp MB2  &none   &kp RSHIFT
-&trans  &kp LCTRL  &none           &none           &none            &none   &trans   &trans  &trans  &trans  &trans  &trans   &none   &none     &none     &none     &none   &kp LALT
-&trans  &none      &none           &none           &none                    &to DEF  &trans  &trans  &trans  &trans  &to DEF          &none     &none     &none     &none   &none
-            >;
-        };
-
+/*         mouse_layer { */
+/*             bindings = < */
+/* &trans  &trans     &trans          &trans          &trans                                                                             &trans    &trans    &trans    &trans  &trans */
+/* &trans  &trans     &trans          &trans          &trans           &trans                                                    &trans  &trans    &trans    &trans    &trans  &trans */
+/* &trans  &none      &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &none                                                     &none   &mkp MB4  &mkp MB5  &none     &none   &none */
+/* &trans  &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                                                     &none   &mkp MB1  &mkp MB3  &mkp MB2  &none   &kp RSHIFT */
+/* &trans  &kp LCTRL  &none           &none           &none            &none   &trans   &trans  &trans  &trans  &trans  &trans   &none   &none     &none     &none     &none   &kp LALT */
+/* &trans  &none      &none           &none           &none                    &to DEF  &trans  &trans  &trans  &trans  &to DEF          &none     &none     &none     &none   &none */
+/*             >; */
+/*         }; */
+/**/
         magic_layer {
             bindings = <
 &bt BT_CLR   &none            &none            &none            &none                                                                                     &none  &none  &none  &none  &bt BT_CLR_ALL
