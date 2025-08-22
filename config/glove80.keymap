@@ -15,7 +15,7 @@
 #define HYPER LC(LS(LG(LALT)))
 
 // layers
-#define DEFAULT 0
+#define DEF 0
 #define SPECIAL 1
 #define NUM 2
 #define MOUSE 3
