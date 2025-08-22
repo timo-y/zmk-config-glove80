@@ -23,6 +23,9 @@
 #define FACTORY_TEST 5
 
 // shortcuts
+#define ___ &trans
+#define xxx &none
+
 #define NUM1 KP_NUMBER_1
 #define NUM2 KP_NUMBER_2 
 #define NUM3 KP_NUMBER_3
@@ -221,46 +224,46 @@
         default_layer {
             bindings = <
             &kp F1         &kp F2   &kp F3      &kp F4      &kp F5                                                                              							    &kp F6    &kp F7         &kp F8         &kp F9        &kp F10
-            &none            &kp DE_1 &kp DE_2    &kp DE_3    &kp DE_4    &kp DE_5                                                                					   &kp DE_6 &kp DE_7  &kp DE_8       &kp DE_9       &kp DE_0      &none
+            xxx            &kp DE_1 &kp DE_2    &kp DE_3    &kp DE_4    &kp DE_5                                                                					   &kp DE_6 &kp DE_7  &kp DE_8       &kp DE_9       &kp DE_0      xxx
             &kp ESC        &kp DE_X &kp DE_V    &kp DE_L    &kp DE_C    &kp DE_W                                                                				       &kp DE_K &kp DE_H  &kp DE_G       &kp DE_F       &kp DE_Q      &kp DE_SS
             &kp TAB        &kp DE_U &hm_l LALT DE_I &hm_l LGUI DE_A &hm_l LCTRL DE_E &kp DE_O                                                   					   &kp DE_S &hm_r RSHFT DE_N &hm_r RGUI DE_R &hm_r RALT DE_T &hm_r RCTRL DE_D &kp DE_Y
-            &kp LSHIFT    &kp DE_UE     &kp DE_OE     &kp DE_AE     &kp DE_P      &kp DE_Z    &kp SPACE     &kp BSPC      &none         &none      &kp RETURN  &kp LSHIFT  &kp DE_B &kp DE_M  &kp DE_COMMA   &kp DE_PERIOD &kp DE_J      &none
-            &magic MAGIC 0 &none      &none         &none         &none                               &mo SPECIAL  &kp SPACE     &kp BSPC  &kp RETURN  &kp LSHIFT  &mo NUM               &none       &none            &none            &none           &none
+            &kp LSHIFT    &kp DE_UE     &kp DE_OE     &kp DE_AE     &kp DE_P      &kp DE_Z    &kp SPACE     &kp BSPC      xxx         xxx      &kp RETURN  &kp LSHIFT  &kp DE_B &kp DE_M  &kp DE_COMMA   &kp DE_PERIOD &kp DE_J      xxx
+            &magic MAGIC 0 xxx      xxx         xxx         xxx                               &mo SPECIAL  &kp SPACE     &kp BSPC  &kp RETURN  &kp LSHIFT  &mo NUM               xxx       xxx            xxx            xxx           xxx
             >;
         };
-
-        special_layer {
-            bindings = <
-          &trans           &trans           &trans           &trans           &trans                                                                                                                         &trans           &trans           &trans           &trans           &trans
-          &trans           &trans           &trans           &trans           &trans           &trans                                                                                             &trans           &trans           &trans           &trans           &trans           &trans
-          &trans           &kp DE_DEG    &kp DE_UNDS   &kp DE_LBRC   &kp DE_RBRC   &kp DE_CARET                                                                                    &kp DE_EXLM   &kp DE_LT     &kp DE_GT     &kp DE_EQL    &kp DE_AMPR   &kp DE_SECT
-          &trans        &hm_l LSHIFT DE_BSLS &hm_l LWIN DE_SLSH &hm_l LALT DE_LCBR &hm_l LCTRL DE_RCBR &kp DE_ASTR                                                                      &kp DE_QUES &hm_r LCTRL DE_LPRN &hm_r LALT DE_RPRN &hm_r LWIN DE_MINUS &hm_r LSHIFT DE_COLN &kp DE_AT
-          &trans           &kp DE_HASH   &kp DE_DLR    &kp DE_PIPE   &kp DE_TILD   &kp DE_GRV    &trans           &trans           &trans       &trans         &trans         &trans                 &kp DE_PLUS   &kp DE_PERC   &kp DE_DQUO   &kp DE_QUOT   &kp DE_SCLN   &kp DE_EURO
-          &trans           &trans           &trans           &trans           &trans                         &trans           &trans           &trans       &trans         &trans         &to MOUSE                         &trans           &trans           &trans           &trans           &trans
-            >;
-        };
-
-        num_layer {
-            bindings = <
-          &trans           &trans           &trans           &trans           &trans                                                                                                                         &trans           &trans           &trans           &trans           &trans
-          &trans           &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                                          &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
-          &trans           &kp PG_UP     &kp BSPC      &kp UP        &kp DELETE    &kp PG_DN                                                                                       &kp SYSREQ    &kp NUM7      &kp NUM8      &kp NUM9      &mkp MB4      &kp F12
-          &trans        &hm_l LSHIFT HOME  &hm_l LWIN LEFT &hm_l LALT DOWN &hm_l LCTRL RIGHT &kp END                                                                                       &kp LG(LS(S)) &hm_r LCTRL NUM4 &hm_r LALT NUM5 &hm_r LWIN NUM6 &hm_r LSHIFT KP_DOT &none      
-          &trans           &kp LCTRL     &kp H         &kp J         &kp K         &kp L         &trans           &trans           &trans       &trans         &trans         &trans                 &kp NUM0      &kp NUM1      &kp NUM2      &kp NUM3      &kp KP_COMMA  &none        
-          &trans           &trans           &trans           &trans           &trans                         &to FBT       &trans           &trans       &trans         &trans         &trans                               &trans           &trans           &trans           &trans           &trans
-            >;
-        };
-
-        mouse_layer {
-            bindings = <
-          &trans           &trans           &trans           &trans           &trans                                                                                                                        &trans           &trans           &trans           &trans           &trans
-          &trans           &trans           &trans           &trans           &trans           &trans                                                                                            &trans           &trans           &trans           &trans           &trans           &trans
-          &trans           &none           &msc SCRL_UP  &mmv MOVE_UP  &msc SCRL_DOWN &none                                                                                           &none           &mkp MB4      &mkp MB5      &none           &none           &none  
-          &trans           &none         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none                                                                                          &none           &mkp MB1      &mkp MB3      &mkp MB2      &none           &kp RSHIFT    
-          &trans           &kp LCTRL     &none           &none           &none           &none           &trans           &trans           &trans       &trans         &trans         &trans                &none           &none           &none           &none           &none           &kp LALT      
-          &trans           &trans           &trans           &trans           &trans                         &to DEF       &trans           &trans       &trans         &trans         &to DEF                          &trans           &trans           &trans           &trans           &trans
-            >;
-        };
+        /**/
+        /* special_layer { */
+        /*     bindings = < */
+        /*   ___           ___           ___           ___           ___                                                                                                                         ___           ___           ___           ___           ___ */
+        /*   ___           ___           ___           ___           ___           ___                                                                                             ___           ___           ___           ___           ___           ___ */
+        /*   ___           &kp DE_DEG    &kp DE_UNDS   &kp DE_LBRC   &kp DE_RBRC   &kp DE_CARET                                                                                    &kp DE_EXLM   &kp DE_LT     &kp DE_GT     &kp DE_EQL    &kp DE_AMPR   &kp DE_SECT */
+        /*   ___        &hm_l LSHIFT DE_BSLS &hm_l LWIN DE_SLSH &hm_l LALT DE_LCBR &hm_l LCTRL DE_RCBR &kp DE_ASTR                                                                      &kp DE_QUES &hm_r LCTRL DE_LPRN &hm_r LALT DE_RPRN &hm_r LWIN DE_MINUS &hm_r LSHIFT DE_COLN &kp DE_AT */
+        /*   ___           &kp DE_HASH   &kp DE_DLR    &kp DE_PIPE   &kp DE_TILD   &kp DE_GRV    ___           ___           ___       ___         ___         ___                 &kp DE_PLUS   &kp DE_PERC   &kp DE_DQUO   &kp DE_QUOT   &kp DE_SCLN   &kp DE_EURO */
+        /*   ___           ___           ___           ___           ___                         ___           ___           ___       ___         ___         &to MOUSE                         ___           ___           ___           ___           ___ */
+        /*     >; */
+        /* }; */
+        /**/
+        /* num_layer { */
+        /*     bindings = < */
+        /*   ___           ___           ___           ___           ___                                                                                                                         ___           ___           ___           ___           ___ */
+        /*   ___           &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                                          &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11 */
+        /*   ___           &kp PG_UP     &kp BSPC      &kp UP        &kp DELETE    &kp PG_DN                                                                                       &kp SYSREQ    &kp NUM7      &kp NUM8      &kp NUM9      &mkp MB4      &kp F12 */
+        /*   ___        &hm_l LSHIFT HOME  &hm_l LWIN LEFT &hm_l LALT DOWN &hm_l LCTRL RIGHT &kp END                                                                                       &kp LG(LS(S)) &hm_r LCTRL NUM4 &hm_r LALT NUM5 &hm_r LWIN NUM6 &hm_r LSHIFT KP_DOT xxx       */
+        /*   ___           &kp LCTRL     &kp H         &kp J         &kp K         &kp L         ___           ___           ___       ___         ___         ___                 &kp NUM0      &kp NUM1      &kp NUM2      &kp NUM3      &kp KP_COMMA  xxx         */
+        /*   ___           ___           ___           ___           ___                         &to FBT       ___           ___       ___         ___         ___                               ___           ___           ___           ___           ___ */
+        /*     >; */
+        /* }; */
+        /**/
+        /* mouse_layer { */
+        /*     bindings = < */
+        /*   ___           ___           ___           ___           ___                                                                                                                        ___           ___           ___           ___           ___ */
+        /*   ___           ___           ___           ___           ___           ___                                                                                            ___           ___           ___           ___           ___           ___ */
+        /*   ___           xxx           &msc SCRL_UP  &mmv MOVE_UP  &msc SCRL_DOWN xxx                                                                                           xxx           &mkp MB4      &mkp MB5      xxx           xxx           xxx   */
+        /*   ___           xxx         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT xxx                                                                                          xxx           &mkp MB1      &mkp MB3      &mkp MB2      xxx           &kp RSHIFT     */
+        /*   ___           &kp LCTRL     xxx           xxx           xxx           xxx           ___           ___           ___       ___         ___         ___                xxx           xxx           xxx           xxx           xxx           &kp LALT       */
+        /*   ___           ___           ___           ___           ___                         &to DEF       ___           ___       ___         ___         &to DEF                          ___           ___           ___           ___           ___ */
+        /*     >; */
+        /* }; */
 
         magic_layer {
             bindings = <
