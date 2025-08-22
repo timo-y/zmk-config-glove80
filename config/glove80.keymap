@@ -161,6 +161,13 @@
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 45 46 47 63 64 65 66 67 68>;
             hold-trigger-on-release;
         };
+
+        ud: undead_macro {
+            compatible = "zmk,behavior-macro-one-param";
+            label = "UNDEAD_MACRO";
+            #binding-cells = <1>;
+            bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>, <&kp SPACE>;
+        };
     };
 
     macros {
@@ -199,6 +206,16 @@
             bindings = <&out OUT_BLE &bt BT_SEL 3>;
         };
     };
+    
+    combos {
+        compatible = "zmk,combos";
+        numlock_combo {
+            bindings = <&kp KP_NLCK>;
+            key-positions = <69 72>; 
+            layers = <NUM>;
+            timeout-ms = <25>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -218,9 +235,9 @@
             bindings = <
 &kp ESC  &trans                &trans              &trans              &trans                                                                                          &trans               &trans              &trans               &trans                &trans
 &trans   &trans                &trans              &trans              &trans               &trans                                                        &trans       &trans               &trans              &trans               &trans                &trans
-&trans   &kp DE_DEG            &kp DE_UNDS         &kp DE_LBRC         &kp DE_RCBR          &kp DE_CARET                                                  &kp DE_EXLM  &kp DE_LT            &kp DE_GT           &kp DE_EQL           &kp DE_AMPR           &kp DE_SECT
+&trans   &kp DE_DEG            &kp DE_UNDS         &kp DE_LBRC         &kp DE_RCBR          &ud DE_CARET                                                  &kp DE_EXLM  &kp DE_LT            &kp DE_GT           &kp DE_EQL           &kp DE_AMPR           &kp DE_SECT
 &trans   &hm_l LSHIFT DE_BSLS  &hm_l LWIN DE_SLSH  &hm_l LALT DE_LCBR  &hm_l LCTRL DE_RCBR  &kp DE_ASTR                                                   &kp DE_QUES  &hm_r LCTRL DE_LPRN  &hm_r LALT DE_RPRN  &hm_r LGUI DE_MINUS  &hm_r LSHIFT DE_COLN  &kp DE_AT
-&trans   &kp DE_HASH           &kp DE_DLR          &kp DE_PIPE         &kp DE_TILD          &kp DE_GRV    &trans  &trans  &trans  &trans  &trans  &trans  &kp DE_PLUS  &kp DE_PERC          &kp DE_DQUO         &kp DE_QUOT          &kp DE_SCLN           &kp DE_EURO
+&trans   &kp DE_HASH           &kp DE_DLR          &kp DE_PIPE         &kp DE_TILD          &ud DE_GRV    &trans  &trans  &trans  &trans  &trans  &trans  &kp DE_PLUS  &kp DE_PERC          &kp DE_DQUO         &kp DE_QUOT          &kp DE_SCLN           &kp DE_EURO
 &trans   &trans                &trans              &trans              &trans                             &trans  &trans  &trans  &trans  &trans  &to MOUSE               &trans               &trans              &trans               &trans                &trans
             >;
         };
