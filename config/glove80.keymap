@@ -4,17 +4,18 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/mouse.h>
-#include <dt-bindings/zmk/ext_power.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
 #define HYPER LC(LS(LG(LALT)))
 
 // layers
+
 #define DEFAULT 0
 #define SPECIAL 1
 #define NUM 2
@@ -23,21 +24,22 @@
 #define FACTORY_TEST 5
 
 // shortcuts
+
 #define ___ &trans
 #define xxx &none
-
 #define NUM1 KP_NUMBER_1
-#define NUM2 KP_NUMBER_2 
+#define NUM2 KP_NUMBER_2
 #define NUM3 KP_NUMBER_3
 #define NUM4 KP_NUMBER_4
-#define NUM5 KP_NUMBER_5 
-#define NUM6 KP_NUMBER_6 
-#define NUM7 KP_NUMBER_7 
-#define NUM8 KP_NUMBER_8 
-#define NUM9 KP_NUMBER_9 
-#define NUM0 KP_NUMBER_0 
+#define NUM5 KP_NUMBER_5
+#define NUM6 KP_NUMBER_6
+#define NUM7 KP_NUMBER_7
+#define NUM8 KP_NUMBER_8
+#define NUM9 KP_NUMBER_9
+#define NUM0 KP_NUMBER_0
 
 // DE
+
 #define DE_CARET GRAVE  	// ^ (dead)
 #define DE_1    N1        	// 1
 #define DE_2    N2        	// 2
@@ -119,6 +121,7 @@
 #define DE_MICR RA(DE_M)    // µ
 
 // Homerow mod timing
+
 #define HM_TAPPING_TERM 280
 #define HM_QUICK_TAP    175
 
@@ -134,11 +137,13 @@
         };
 
         // Homerow mods for left hand (E A I U -> Ctrl Alt GUI Shift)
+
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_LEFT";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
+
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <HM_QUICK_TAP>;
@@ -148,11 +153,13 @@
         };
 
         // Homerow mods for right hand (N R T D -> Shift GUI Alt Ctrl)
+
         hm_r: homerow_mods_right {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_RIGHT";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
+
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <HM_QUICK_TAP>;
@@ -167,44 +174,35 @@
             label = "RGB_UG_STATUS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&rgb_ug RGB_STATUS>;
+            bindings = <&rgb_ug RGB_STATUS>;
         };
 
         bt_0: bt_profile_macro_0 {
             label = "BT_0";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&out OUT_BLE>,
-                  <&bt BT_SEL 0>;
+            bindings = <&out OUT_BLE &bt BT_SEL 0>;
         };
 
         bt_1: bt_profile_macro_1 {
             label = "BT_1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&out OUT_BLE>,
-                  <&bt BT_SEL 1>;
+            bindings = <&out OUT_BLE &bt BT_SEL 1>;
         };
 
         bt_2: bt_profile_macro_2 {
             label = "BT_2";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&out OUT_BLE>,
-                  <&bt BT_SEL 2>;
+            bindings = <&out OUT_BLE &bt BT_SEL 2>;
         };
 
         bt_3: bt_profile_macro_3 {
             label = "BT_3";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&out OUT_BLE>,
-                  <&bt BT_SEL 3>;
+            bindings = <&out OUT_BLE &bt BT_SEL 3>;
         };
     };
 
@@ -213,68 +211,67 @@
 
         default_layer {
             bindings = <
-            &kp F1         &kp F2   &kp F3      &kp F4      &kp F5                                                                                                 &kp F6    &kp F7         &kp F8         &kp F9        &kp F10
-            &kp DE_CARET   &kp DE_1 &kp DE_2    &kp DE_3    &kp DE_4    &kp DE_5                                                            	          &kp DE_6 &kp DE_7  &kp DE_8       &kp DE_9       &kp DE_0      &kp DE_MINUS
-            &kp TAB        &kp DE_X &kp DE_V    &kp DE_L    &kp DE_C    &kp DE_W                                                            	          &kp DE_K &kp DE_H  &kp DE_G       &kp DE_F       &kp DE_Q      &kp DE_SS
-            &kp ESC        &kp DE_U &hm_l LALT DE_I &hm_l LGUI DE_A &hm_l LCTRL DE_E &kp DE_O                                               	          &kp DE_S &hm_r LCTRL DE_N &hm_r LALT DE_R &hm_r LGUI DE_T &hm_r LSHIFT DE_D &kp DE_Y
-            &kp DE_ACUT    &kp DE_UE &kp DE_OE  &kp DE_AE   &kp DE_P    &kp DE_Z                &none &none &none &none &none &none         	          &kp DE_B &kp DE_M  &kp DE_COMMA   &kp DE_PERIOD  &kp DE_J      &kp PG_UP
-            &magic MAGIC 0 &none     &none      &none        &none                       &mo SPECIAL &kp SPACE &kp BSPC &kp RETURN &kp LSHIFT &mo NUM              &none      &none         &none           &none        &none
+&kp F1          &kp F2     &kp F3           &kp F4           &kp F5                                                                                                   &kp F6            &kp F7           &kp F8           &kp F9             &kp F10
+&kp DE_CARET    &kp DE_1   &kp DE_2         &kp DE_3         &kp DE_4          &kp DE_5                                                                     &kp DE_6  &kp DE_7          &kp DE_8         &kp DE_9         &kp DE_0           &kp DE_MINUS
+&kp TAB         &kp DE_X   &kp DE_V         &kp DE_L         &kp DE_C          &kp DE_W                                                                     &kp DE_K  &kp DE_H          &kp DE_G         &kp DE_F         &kp DE_Q           &kp DE_SS
+&kp ESC         &kp DE_U   &hm_l LALT DE_I  &hm_l LGUI DE_A  &hm_l LCTRL DE_E  &kp DE_O                                                                     &kp DE_S  &hm_r LCTRL DE_N  &hm_r LALT DE_R  &hm_r LGUI DE_T  &hm_r LSHIFT DE_D  &kp DE_Y
+&kp DE_ACUT     &kp DE_UE  &kp DE_OE        &kp DE_AE        &kp DE_P          &kp DE_Z  &none        &none      &none     &none       &none       &none    &kp DE_B  &kp DE_M          &kp DE_COMMA     &kp DE_PERIOD    &kp DE_J           &kp PG_UP
+&magic MAGIC 0  &none      &none            &none            &none                       &mo SPECIAL  &kp SPACE  &kp BSPC  &kp RETURN  &kp LSHIFT  &mo NUM            &none             &none            &none            &none              &none
             >;
         };
 
         special_layer {
             bindings = <
-            &trans      &trans   &trans      &trans      &trans                                                                                      &trans    &trans         &trans         &trans        &trans
-            &trans      &trans   &trans      &trans      &trans      &trans                                                              &trans      &trans    &trans      &trans       &trans      &trans
-            &trans  	&kp DE_DEG &kp DE_UNDS &kp DE_LBRC &kp DE_RCBR &kp DE_CARET                                                      &kp DE_EXLM &kp DE_LT  &kp DE_GT       &kp DE_EQL       &kp DE_AMPR      &kp DE_SECT
-            &trans		&kp DE_U &hm_l LALT DE_I &hm_l LGUI DE_A &hm_l LCTRL DE_E &kp DE_O                                               &kp DE_QUES &hm_r LCTRL DE_LPRN &hm_r LALT DE_RPRN &hm_r LGUI DE_MINUS &hm_r LSHIFT DE_COLN &kp DE_AT
-            &trans		&kp DE_HASH &kp DE_DLR  &kp DE_PIPE   &kp DE_TILD    &kp DE_GRV &trans &trans &trans &trans &trans &trans       &kp DE_PLUS &kp DE_PERC  &kp DE_DQUO   &kp DE_QUOT  &kp DE_SCLN      &kp DE_EURO
-            &trans		&trans      &trans     &trans       &trans                      &trans  &trans   &trans  &trans &trans   &trans             &trans      &trans       &trans       &trans      &trans
+&trans  &trans       &trans           &trans           &trans                                                                                       &trans               &trans              &trans               &trans                &trans
+&trans  &trans       &trans           &trans           &trans            &trans                                                        &trans       &trans               &trans              &trans               &trans                &trans
+&trans  &kp DE_DEG   &kp DE_UNDS      &kp DE_LBRC      &kp DE_RCBR       &kp DE_CARET                                                  &kp DE_EXLM  &kp DE_LT            &kp DE_GT           &kp DE_EQL           &kp DE_AMPR           &kp DE_SECT
+&trans  &kp DE_U     &hm_l LALT DE_I  &hm_l LGUI DE_A  &hm_l LCTRL DE_E  &kp DE_O                                                      &kp DE_QUES  &hm_r LCTRL DE_LPRN  &hm_r LALT DE_RPRN  &hm_r LGUI DE_MINUS  &hm_r LSHIFT DE_COLN  &kp DE_AT
+&trans  &kp DE_HASH  &kp DE_DLR       &kp DE_PIPE      &kp DE_TILD       &kp DE_GRV    &trans  &trans  &trans  &trans  &trans  &trans  &kp DE_PLUS  &kp DE_PERC          &kp DE_DQUO         &kp DE_QUOT          &kp DE_SCLN           &kp DE_EURO
+&trans  &trans       &trans           &trans           &trans                          &trans  &trans  &trans  &trans  &trans  &trans               &trans               &trans              &trans               &trans                &trans
             >;
         };
 
         num_layer {
             bindings = <
-            &trans      &trans   &trans      &trans      &trans                                                                                      &trans    &trans         &trans         &trans        &trans
-            &kp F1         &kp F2   &kp F3      &kp F4      &kp F5 &kp F6                                                                           &kp F7         &kp F8         &kp F9        &kp F10 &kp F11
-            &trans            &kp PG_UP               &kp BSPC           &kp UP           &kp DELETE           &kp PG_DN                                                                              &kp SYSREQ    &kp NUM7      &kp NUM8      &kp NUM9      &mkp MB4      &kp F12
-            &trans            &hm_l LSHIFT HOME   &hm_l LWIN LEFT &hm_l LALT DOWN &hm_l LCTRL RIGHT  &kp END                                                                                &kp LG(LS(S)) &hm_r LCTRL NUM4 &hm_r LALT NUM5 &hm_r LWIN NUM6 &hm_r LSHIFT KP_DOT &none
-            &trans		    &kp LCTRL     &kp H         &kp J         &kp K         &kp L &trans &trans &trans &trans &trans &trans       &kp NUM0      &kp NUM1      &kp NUM2      &kp NUM3      &kp KP_COMMA  &none
-            &trans		    &trans      &trans     &trans       &trans                      &trans  &trans   &trans  &trans &trans   &trans             &trans      &trans       &trans       &trans      &trans
-
+&trans             &trans           &trans           &trans             &trans                                                                                        &trans           &trans           &trans               &trans   &trans
+&kp F1             &kp F2           &kp F3           &kp F4             &kp F5     &kp F6                                                           &kp F7            &kp F8           &kp F9           &kp F10              &kp F11  &trans
+&kp PG_UP          &kp BSPC         &kp UP           &kp DELETE         &kp PG_DN  &kp SYSREQ                                                       &kp NUM7          &kp NUM8         &kp NUM9         &mkp MB4             &kp F12  &trans
+&hm_l LSHIFT HOME  &hm_l LWIN LEFT  &hm_l LALT DOWN  &hm_l LCTRL RIGHT  &kp END    &kp LG(LS(S))                                                    &hm_r LCTRL NUM4  &hm_r LALT NUM5  &hm_r LWIN NUM6  &hm_r LSHIFT KP_DOT  &none    &trans
+&kp LCTRL          &kp H            &kp J            &kp K              &kp L      &trans         &trans  &trans  &trans  &trans  &trans  &kp NUM0  &kp NUM1          &kp NUM2         &kp NUM3         &kp KP_COMMA         &none    &trans
+&trans             &trans           &trans           &trans             &trans                    &trans  &trans  &trans  &trans  &trans  &trans                      &trans           &trans           &trans               &trans
             >;
         };
 
         mouse_layer {
             bindings = <
-            &kp C_BRI_DN      &kp C_BRI_UP        &kp C_PREV      &kp C_NEXT      &kp C_PP                                                                                                           &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP  &none           &kp PAUSE_BREAK
-            &trans            &none               &none           &none           &none           &kp HOME                                                                              &kp LPAR     &kp KP_NUM   &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp PSCRN
-            &trans            &none               &none           &kp UP          &none           &kp END                                                                               &kp RPAR     &kp KP_N7    &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp SLCK
-            &trans            &none               &kp LEFT        &kp DOWN        &kp RIGHT       &kp PG_UP                                                                             &kp PRCNT    &kp KP_N4    &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &none
-            &trans            &kp K_CMENU         &none           &kp F11         &kp F12         &kp PG_DN       &trans      &trans      &to DEFAULT &trans      &trans      &trans    &kp COMMA    &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
-            &trans            &kp CAPS            &kp INS         &kp F11         &kp F12                         &trans      &trans      &trans      &trans      &trans      &trans                 &kp KP_N0    &kp KP_N0    &kp KP_DOT    &kp KP_ENTER    &trans
+&trans  &kp C_BRI_UP  &kp C_PREV      &kp C_NEXT      &kp C_PP                                                                                    &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP   &none            &kp PAUSE_BREAK
+&trans  &none         &none           &none           &none            &kp HOME                                                        &kp LPAR   &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp PSCRN
+&trans  &none         &none           &mmv MOVE_UP    &none            &kp END                                                         &kp RPAR   &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MINUS     &kp SLCK
+&trans  &none         &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp PG_UP                                                       &kp PRCNT  &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      &none
+&trans  &kp K_CMENU   &none           &kp F11         &kp F12          &kp PG_DN  &trans  &trans  &to DEFAULT  &trans  &trans  &trans  &kp COMMA  &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     &trans
+&trans  &kp CAPS      &kp INS         &kp F11         &kp F12                     &trans  &trans  &trans       &trans  &trans  &trans             &kp KP_N0   &kp KP_N0     &kp KP_DOT     &kp KP_ENTER     &trans
             >;
         };
 
         magic_layer {
             bindings = <
-            &bt BT_CLR        &none               &none           &none           &none                                                                                                           &none      &none      &none      &none      &bt BT_CLR_ALL
-            &none             &none               &none           &none           &none           &none                                                                                &none      &none      &none      &none      &none      &none
-            &none             &rgb_ug RGB_SPI     &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG                                                                      &none      &none      &none      &none      &none      &none
-            &bootloader       &rgb_ug RGB_SPD     &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF                                                                      &none      &none      &none      &none      &none      &bootloader
-            &sys_reset        &none               &none           &none           &none           &none           &bt_2     &bt_3     &none            &none     &none     &none       &none      &none      &none      &none      &none      &sys_reset
-            &none             &none               &none           &none           &none                           &bt_0     &bt_1     &out OUT_USB     &none     &none     &none                  &none      &none      &none      &none      &to FACTORY_TEST
+&bt BT_CLR   &none            &none            &none            &none                                                                                     &none  &none  &none  &none  &bt BT_CLR_ALL
+&none        &none            &none            &none            &none            &none                                                             &none  &none  &none  &none  &none  &none
+&none        &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                   &none  &none  &none  &none  &none  &none
+&bootloader  &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                   &none  &none  &none  &none  &none  &bootloader
+&sys_reset   &none            &none            &none            &none            &none            &bt_2  &bt_3  &none         &none  &none  &none  &none  &none  &none  &none  &none  &sys_reset
+&none        &none            &none            &none            &none                             &bt_0  &bt_1  &out OUT_USB  &none  &none  &none         &none  &none  &none  &none  &to FACTORY_TEST
             >;
         };
 
         factory_test_layer {
             bindings = <
-            &kp N0   &kp N6   &kp N2   &kp N8   &kp N4                                                                              &kp N4   &kp N8   &kp N2   &kp N6   &kp N0
-            &kp N1   &kp N7   &kp N3   &kp N9   &kp N5   &kp N0                                                            &kp N0   &kp N5   &kp N9   &kp N3   &kp N7   &kp N1
-            &kp N2   &kp N8   &kp N4   &kp N0   &kp N6   &kp N1                                                            &kp N1   &kp N6   &kp N0   &kp N4   &kp N8   &kp N2
-            &kp N3   &kp N9   &kp N5   &kp N1   &kp N7   &kp N2                                                            &kp N2   &kp N7   &kp N1   &kp N5   &kp N9   &kp N3
-            &kp N4   &kp N0   &kp N6   &kp N2   &kp N8   &kp N3   &kp N4   &kp N5   &kp N6      &kp N6   &kp N5   &kp N4   &kp N3   &kp N8   &kp N2   &kp N6   &kp N0   &kp N4
-            &kp N5   &kp N1   &kp N7   &kp N3   &kp N9            &kp N7   &kp N8   &kp N9      &kp N9   &kp N8   &kp N7            &kp N9   &kp N3   &kp N7   &kp N1   &kp N5
+&kp N0  &kp N6  &kp N2  &kp N8  &kp N4                                                                  &kp N4  &kp N8  &kp N2  &kp N6  &kp N0
+&kp N1  &kp N7  &kp N3  &kp N9  &kp N5  &kp N0                                                  &kp N0  &kp N5  &kp N9  &kp N3  &kp N7  &kp N1
+&kp N2  &kp N8  &kp N4  &kp N0  &kp N6  &kp N1                                                  &kp N1  &kp N6  &kp N0  &kp N4  &kp N8  &kp N2
+&kp N3  &kp N9  &kp N5  &kp N1  &kp N7  &kp N2                                                  &kp N2  &kp N7  &kp N1  &kp N5  &kp N9  &kp N3
+&kp N4  &kp N0  &kp N6  &kp N2  &kp N8  &kp N3  &kp N4  &kp N5  &kp N6  &kp N6  &kp N5  &kp N4  &kp N3  &kp N8  &kp N2  &kp N6  &kp N0  &kp N4
+&kp N5  &kp N1  &kp N7  &kp N3  &kp N9          &kp N7  &kp N8  &kp N9  &kp N9  &kp N8  &kp N7          &kp N9  &kp N3  &kp N7  &kp N1  &kp N5
             >;
         };
     };
