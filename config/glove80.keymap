@@ -15,13 +15,15 @@
 
 // layers
 #define DEFAULT 0
-#define LOWER 1
-#define MAGIC 2
-#define FACTORY_TEST 3
+#define SPECIAL 1
+#define NUM 2
+#define MOUSE 3
+#define MAGIC 4
+#define FACTORY_TEST 5
 
 // shortcuts
 #define ___ &trans
-#define XXX &none
+#define xxx &none
 
 #define NUM1 KP_NUMBER_1
 #define NUM2 KP_NUMBER_2 
@@ -219,33 +221,46 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            // Neo2 Layout with homerow mods using DE_* codes
-            // ---------------------------------------------------------------------------------------------------------------------------------
-            // |  F1   |  F2 |  F3 |  F4  |  F5  |                                                               |  F6   |  F7   |  F8  |   F9  |  F10 |
-            // |  ^    |  1  |  2  |  3   |  4   |  5   |                                                 |  6   |   7   |   8   |  9   |   0   |   -  |
-            // |  TAB  |  X  |  V  |  L   |  C   |  W   |                                                 |  K   |   H   |   G   |  F   |   Q   |   ß  |
-            // |  ESC  |  U  | I/A |A/GUI |E/Ctrl| O   |                                                 |  S   |N/Shift|R/GUI |T/Alt |D/Ctrl|   Y  |
-            // |   `   | Ü   |  Ö  |  Ä   |  P   |  Z   | LSHFT | LCTRL | LOWER | | LGUI  | RCTRL | RSHFT |  B   |   M   |   ,   |  .   |   J   | PGUP |
-            // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
-
             bindings = <
-            &kp F1         &kp F2   &kp F3      &kp F4      &kp F5                                                                                            &kp F6    &kp F7         &kp F8         &kp F9        &kp F10
-            &kp DE_CARET   &kp DE_1 &kp DE_2    &kp DE_3    &kp DE_4    &kp DE_5                                                                 &kp DE_6 &kp DE_7  &kp DE_8       &kp DE_9       &kp DE_0      &kp DE_MINUS
-            &kp TAB        &kp DE_X &kp DE_V    &kp DE_L    &kp DE_C    &kp DE_W                                                                 &kp DE_K &kp DE_H  &kp DE_G       &kp DE_F       &kp DE_Q      &kp DE_SS
-            &kp ESC        &kp DE_U &hm_l LALT DE_I &hm_l LGUI DE_A &hm_l LCTRL DE_E &kp DE_O                                                &kp DE_S &hm_r RSHFT DE_N &hm_r RGUI DE_R &hm_r RALT DE_T &hm_r RCTRL DE_D &kp DE_Y
-            &kp DE_ACUT    &kp DE_UE &kp DE_OE  &kp DE_AE   &kp DE_P    &kp DE_Z &kp LSHFT &kp LCTRL &layer_td &kp LGUI &kp RCTRL &kp RSHFT &kp DE_B &kp DE_M  &kp DE_COMMA   &kp DE_PERIOD  &kp DE_J      &kp PG_UP
-            &magic MAGIC 0 &kp HOME &kp END     &kp LEFT    &kp RIGHT           &kp BSPC  &kp DEL   &kp LALT  &kp RALT &kp RET   &kp SPACE           &kp UP    &kp DOWN       &kp LBKT       &kp RBKT      &kp PG_DN
+            &kp F1         &kp F2   &kp F3      &kp F4      &kp F5                                                                              							    &kp F6    &kp F7         &kp F8         &kp F9        &kp F10
+            xxx            &kp DE_1 &kp DE_2    &kp DE_3    &kp DE_4    &kp DE_5                                                                					   &kp DE_6 &kp DE_7  &kp DE_8       &kp DE_9       &kp DE_0      xxx
+            &kp ESC        &kp DE_X &kp DE_V    &kp DE_L    &kp DE_C    &kp DE_W                                                                				       &kp DE_K &kp DE_H  &kp DE_G       &kp DE_F       &kp DE_Q      &kp DE_SS
+            &kp TAB        &kp DE_U &hm_l LALT DE_I &hm_l LGUI DE_A &hm_l LCTRL DE_E &kp DE_O                                                   					   &kp DE_S &hm_r RSHFT DE_N &hm_r RGUI DE_R &hm_r RALT DE_T &hm_r RCTRL DE_D &kp DE_Y
+            &kp LSHIFT    &kp DE_UE     &kp DE_OE     &kp DE_AE     &kp DE_P      &kp DE_Z    &kp SPACE     &kp BSPC      xxx         xxx      &kp RETURN  &kp LSHIFT  &kp DE_B &kp DE_M  &kp DE_COMMA   &kp DE_PERIOD &kp DE_J      xxx
+            &magic MAGIC 0 xxx      xxx         xxx         xxx                               &mo SPECIAL  &kp SPACE     &kp BSPC  &kp RETURN  &kp LSHIFT  &mo NUM               xxx       xxx            xxx            xxx           xxx
             >;
         };
 
-        lower_layer {
+        special_layer {
             bindings = <
-            &kp C_BRI_DN      &kp C_BRI_UP        &kp C_PREV      &kp C_NEXT      &kp C_PP                                                                                                           &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP  &none           &kp PAUSE_BREAK
-            &trans            &none               &none           &none           &none           &kp HOME                                                                              &kp LPAR     &kp KP_NUM   &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp PSCRN
-            &trans            &none               &none           &kp UP          &none           &kp END                                                                               &kp RPAR     &kp KP_N7    &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp SLCK
-            &trans            &none               &kp LEFT        &kp DOWN        &kp RIGHT       &kp PG_UP                                                                             &kp PRCNT    &kp KP_N4    &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &none
-            &trans            &kp K_CMENU         &none           &kp F11         &kp F12         &kp PG_DN       &trans      &trans      &to DEFAULT &trans      &trans      &trans    &kp COMMA    &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
-            &trans            &kp CAPS            &kp INS         &kp F11         &kp F12                         &trans      &trans      &trans      &trans      &trans      &trans                 &kp KP_N0    &kp KP_N0    &kp KP_DOT    &kp KP_ENTER    &trans
+          ___           ___           ___           ___           ___                                                                                                                         ___           ___           ___           ___           ___
+          ___           ___           ___           ___           ___           ___                                                                                             ___           ___           ___           ___           ___           ___
+          ___           &kp DE_DEG    &kp DE_UNDS   &kp DE_LBRC   &kp DE_RBRC   &ud DE_CARET                                                                                    &kp DE_EXLM   &kp DE_LT     &kp DE_GT     &kp DE_EQL    &kp DE_AMPR   &kp DE_SECT
+          ___        &ct LSHIFT DE_BSLS &ct LWIN DE_SLSH &ct LALT DE_LCBR &ct LCTRL DE_RCBR &kp DE_ASTR                                                                      &kp DE_QUES &ct LCTRL DE_LPRN &ct LALT DE_RPRN &ct LWIN DE_MINUS &ct LSHIFT DE_COLN &kp DE_AT
+          ___           &kp DE_HASH   &kp DE_DLR    &kp DE_PIPE   &kp DE_TILD   &ud DE_GRV    ___           ___           ___       ___         ___         ___                 &kp DE_PLUS   &kp DE_PERC   &kp DE_DQUO   &kp DE_QUOT   &kp DE_SCLN   &kp DE_EURO
+          ___           ___           ___           ___           ___                         ___           ___           ___       ___         ___         &to MOUSE                         ___           ___           ___           ___           ___
+            >;
+        };
+
+        num_layer {
+            bindings = <
+          ___           ___           ___           ___           ___                                                                                                                         ___           ___           ___           ___           ___
+          ___           &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                                          &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
+          ___           &kp PG_UP     &kp BSPC      &kp UP        &kp DELETE    &kp PG_DN                                                                                       &kp SYSREQ    &kp NUM7      &kp NUM8      &kp NUM9      &mkp MB4      &kp F12
+          ___        &ct LSHIFT HOME  &ct LWIN LEFT &ct LALT DOWN &ct LCTRL RIGHT &kp END                                                                                       &kp LG(LS(S)) &ct LCTRL NUM4 &ct LALT NUM5 &ct LWIN NUM6 &ct LSHIFT KP_DOT xxx      
+          ___           &kp LCTRL     &kp H         &kp J         &kp K         &kp L         ___           ___           ___       ___         ___         ___                 &kp NUM0      &kp NUM1      &kp NUM2      &kp NUM3      &kp KP_COMMA  xxx        
+          ___           ___           ___           ___           ___                         &to FBT       ___           ___       ___         ___         ___                               ___           ___           ___           ___           ___
+            >;
+        };
+
+        mouse_layer {
+            bindings = <
+          ___           ___           ___           ___           ___                                                                                                                        ___           ___           ___           ___           ___
+          ___           ___           ___           ___           ___           ___                                                                                            ___           ___           ___           ___           ___           ___
+          ___           xxx           &msc SCRL_UP  &mmv MOVE_UP  &msc SCRL_DOWN xxx                                                                                           xxx           &mkp MB4      &mkp MB5      xxx           xxx           xxx  
+          ___           xxx         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT xxx                                                                                          xxx           &mkp MB1      &mkp MB3      &mkp MB2      xxx           &kp RSHIFT    
+          ___           &kp LCTRL     xxx           xxx           xxx           xxx           ___           ___           ___       ___         ___         ___                xxx           xxx           xxx           xxx           xxx           &kp LALT      
+          ___           ___           ___           ___           ___                         &to DEF       ___           ___       ___         ___         &to DEF                          ___           ___           ___           ___           ___
             >;
         };
 
