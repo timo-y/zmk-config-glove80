@@ -250,17 +250,17 @@
             >;
         };
 
-        mouse_layer {
-            bindings = <
-          ___           ___           ___           ___           ___                                                                                                                        ___           ___           ___           ___           ___
-          ___           ___           ___           ___           ___           ___                                                                                            ___           ___           ___           ___           ___           ___
-          ___           xxx           &msc SCRL_UP  &mmv MOVE_UP  &msc SCRL_DOWN xxx                                                                                           xxx           &mkp MB4      &mkp MB5      xxx           xxx           xxx  
-          ___           xxx         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT xxx                                                                                          xxx           &mkp MB1      &mkp MB3      &mkp MB2      xxx           &kp RSHIFT    
-          ___           &kp LCTRL     xxx           xxx           xxx           xxx           ___           ___           ___       ___         ___         ___                xxx           xxx           xxx           xxx           xxx           &kp LALT      
-          ___           ___           ___           ___           ___                         &to DEF       ___           ___       ___         ___         &to DEF                          ___           ___           ___           ___           ___
-            >;
-        };
-
+        /* mouse_layer { */
+        /*     bindings = < */
+        /*   ___           ___           ___           ___           ___                                                                                                                        ___           ___           ___           ___           ___ */
+        /*   ___           ___           ___           ___           ___           ___                                                                                            ___           ___           ___           ___           ___           ___ */
+        /*   ___           xxx           &msc SCRL_UP  &mmv MOVE_UP  &msc SCRL_DOWN xxx                                                                                           xxx           &mkp MB4      &mkp MB5      xxx           xxx           xxx   */
+        /*   ___           xxx         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT xxx                                                                                          xxx           &mkp MB1      &mkp MB3      &mkp MB2      xxx           &kp RSHIFT     */
+        /*   ___           &kp LCTRL     xxx           xxx           xxx           xxx           ___           ___           ___       ___         ___         ___                xxx           xxx           xxx           xxx           xxx           &kp LALT       */
+        /*   ___           ___           ___           ___           ___                         &to DEF       ___           ___       ___         ___         &to DEF                          ___           ___           ___           ___           ___ */
+        /*     >; */
+        /* }; */
+        /**/
         magic_layer {
             bindings = <
             &bt BT_CLR        &none               &none           &none           &none                                                                                                           &none      &none      &none      &none      &bt BT_CLR_ALL
