@@ -236,9 +236,9 @@
             bindings = <
           ___           ___           ___           ___           ___                                                                                                                         ___           ___           ___           ___           ___
           ___           ___           ___           ___           ___           ___                                                                                             ___           ___           ___           ___           ___           ___
-          ___           &kp DE_DEG    &kp DE_UNDS   &kp DE_LBRC   &kp DE_RBRC   &ud DE_CARET                                                                                    &kp DE_EXLM   &kp DE_LT     &kp DE_GT     &kp DE_EQL    &kp DE_AMPR   &kp DE_SECT
+          ___           &kp DE_DEG    &kp DE_UNDS   &kp DE_LBRC   &kp DE_RBRC   &kp DE_CARET                                                                                    &kp DE_EXLM   &kp DE_LT     &kp DE_GT     &kp DE_EQL    &kp DE_AMPR   &kp DE_SECT
           ___        &hm_l LSHIFT DE_BSLS &hm_l LWIN DE_SLSH &hm_l LALT DE_LCBR &hm_l LCTRL DE_RCBR &kp DE_ASTR                                                                      &kp DE_QUES &hm_r LCTRL DE_LPRN &hm_r LALT DE_RPRN &hm_r LWIN DE_MINUS &hm_r LSHIFT DE_COLN &kp DE_AT
-          ___           &kp DE_HASH   &kp DE_DLR    &kp DE_PIPE   &kp DE_TILD   &ud DE_GRV    ___           ___           ___       ___         ___         ___                 &kp DE_PLUS   &kp DE_PERC   &kp DE_DQUO   &kp DE_QUOT   &kp DE_SCLN   &kp DE_EURO
+          ___           &kp DE_HASH   &kp DE_DLR    &kp DE_PIPE   &kp DE_TILD   &kp DE_GRV    ___           ___           ___       ___         ___         ___                 &kp DE_PLUS   &kp DE_PERC   &kp DE_DQUO   &kp DE_QUOT   &kp DE_SCLN   &kp DE_EURO
           ___           ___           ___           ___           ___                         ___           ___           ___       ___         ___         &to MOUSE                         ___           ___           ___           ___           ___
             >;
         };
