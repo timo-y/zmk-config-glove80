@@ -211,7 +211,7 @@
         compatible = "zmk,combos";
         numlock_combo {
             bindings = <&kp KP_NLCK>;
-            key-positions = <69 72>; 
+            key-positions = <55 58>; 
             layers = <NUM>;
             timeout-ms = <25>;
         };
