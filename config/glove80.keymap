@@ -229,14 +229,14 @@
 
         num_layer {
             bindings = <
-&trans  &trans             &trans           &trans           &trans             &trans                                                                                        &trans           &trans           &trans               &trans   &trans
-&trans  &kp F1             &kp F2           &kp F3           &kp F4             &kp F5     &kp F6                                                           &kp F7            &kp F8           &kp F9           &kp F10              &kp F11  &trans
+&trans             &trans           &trans           &trans             &trans                                                                                        &trans           &trans           &trans               &trans   &trans
+&kp F1             &kp F2           &kp F3           &kp F4             &kp F5     &kp F6                                                           &kp F7            &kp F8           &kp F9           &kp F10              &kp F11  &trans
 &trans  &kp PG_UP          &kp BSPC         &kp UP           &kp DELETE         &kp PG_DN  &kp SYSREQ                                                       &kp NUM7          &kp NUM8         &kp NUM9         &mkp MB4             &kp F12  &trans
 &trans  &hm_l LSHIFT HOME  &hm_l LWIN LEFT  &hm_l LALT DOWN  &hm_l LCTRL RIGHT  &kp END    &kp LG(LS(S))                                                    &hm_r LCTRL NUM4  &hm_r LALT NUM5  &hm_r LWIN NUM6  &hm_r LSHIFT KP_DOT  &none    &trans
 &trans  &kp LCTRL          &kp H            &kp J            &kp K              &kp L      &trans         &trans  &trans  &trans  &trans  &trans  &kp NUM0  &kp NUM1          &kp NUM2         &kp NUM3         &kp KP_COMMA         &none    &trans
 &trans  &trans             &trans           &trans           &trans             &trans                    &trans  &trans  &trans  &trans  &trans  &trans                      &trans           &trans           &trans               &trans
-            >;
-        };
+              >;
+          };
 
         mouse_layer {
             bindings = <
